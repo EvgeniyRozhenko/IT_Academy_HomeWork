@@ -1,7 +1,6 @@
-package HomeWork5;
+package HomeWork3;
 
-public class CalculatorWithMathCopy {
-
+public class CalculatorWithOperator {
     public double division (double a, double b){
         if(b == 0) {
             System.out.println("Ошибка! Нельзя делить на ноль.");
@@ -22,14 +21,22 @@ public class CalculatorWithMathCopy {
     }
 
     public double power (double value, int powValue){
+        double result = 1;
         if (value < 0){
-            Math.abs(value);
+            value *= -1;
         }
-        return Math.pow(value, powValue);
+        for (int i = 0; i < powValue; i++){
+            result *= value;
+        }
+        return result;
     }
 
     public int abs (int value){
-        return Math.abs(value);
+        if (value < 0){
+            return -value;
+        }else {
+            return value;
+        }
     }
 
     public double root (double value, double i){
@@ -37,7 +44,7 @@ public class CalculatorWithMathCopy {
             System.out.println("Ошибка! Степень не может быть нулевой.");
         }
         if (value < 0){
-            Math.abs(value);
+            value *= -1;
         }
         return Math.pow(value, 1/i);
     }

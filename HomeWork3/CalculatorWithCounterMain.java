@@ -1,4 +1,4 @@
-package HomeWork5;
+package HomeWork3;
 
 public class CalculatorWithCounterMain {
     // 4.1 + 15 * 7 + (28 / 5) ^ 2

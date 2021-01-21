@@ -1,4 +1,6 @@
-package HomeWork5;
+package HomeWork3;
+
+import java.util.Objects;
 
 public class ChernCalc {
     public static void main (String[]args){

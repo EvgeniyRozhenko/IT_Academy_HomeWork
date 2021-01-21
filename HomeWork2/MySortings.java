@@ -1,29 +1,62 @@
-package HomeWork3;
+package HomeWork2;
 /*3. Выполнить сортировку массива с числами:
  3.1 пузырьком
  3.2 выбором
  3.3 Сортировка методов Шейкера.
+ UPDATED!
+ 4.* Выполнить сортировку массива с числами. !!!!ВНИМАНИЕ!!!! код сортировок в данном ДЗ не должен дублироваться и
+не должен находиться в main. Дублирование кода сортировок приведёт к провалу выполнения данного задания.
+Итогом выполнения данного задания будет 1 класс который содержит методы с сортировками, и 1 класс из которого вызываются
+данные методы:
+4.1. После каждой сортировки в консоли у вас должно получиться "[Какой массив был до сортировки] ->
+[Каким стал массив после сортировки]". Для преобразования массива в текст можно использовать класс Arrays.
+4.2. Пишем следующие алгоритмы:
+	4.2.1. Пузырьковая сортировка
+	4.2.2. Шейкерная сортировка
+4.3. Для тестов используем предварительно созданные массивы (в коде ваши тесты должны остаться):
+	4.3.1. {1,2,3,4,5,6}
+	4.3.2. {1,1,1,1}
+	4.3.3. {9,1,5,99,9,9}
+	4.3.4. {}
+4.4. После тестов написать код который будет создавать массив рандомной длинны, заполнять массив рандомными числами.
+Отсортировать.
+4.5. После рандома написать код который будет создавать массив руками через консоль. Отсортировать.
  */
 
-import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class MySortings {
-    public static void main(String[] args) {
-        int [] array = new int[10]; // Создаём массив с 10-ю элементами.
-        Random nums = new Random(); // Созд. переменную с классом Random для генерации псевдослучайных чисел.
-        System.out.println("Создали случайные значения для массива:");
-        for (int i = 0; i < array.length; i++){  // Заполняем массив случайными числами и выводим в консоль.
-            array[i] = nums.nextInt(13);  // Задаём макс. радиус для генер.чисел. От 0 до 12.
-            System.out.print(array[i] + "  ");  // Выводим каждую новую сгенерированную цифру.
-        }
 
-        bubbleMethod(array);
-        selectionMethod(array);
-        shakerMethod(array);
+    public static int[] ArrayByConsole(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Введите длину массива");
+        int [] array = new int[input.nextInt()];
+        System.out.println("Введите " + array.length + " элементов массива:");
+        for (int i = 0; i < array.length; i++){
+            System.out.println("Введите элемент массива");
+            array[i] = input.nextInt();
+        }
+        return array;
     }
 
-    public static void bubbleMethod(int [] array){
+    /** создание массива со случайными элементами
+     * @return созданный массив
+     */
+    public static int[] randomArray(){
+        Random nums = new Random(); // Созд. переменную с классом Random для генерации псевдослучайных чисел.
+        int [] array = new int[nums.nextInt(11)]; // Создаём массив с 10-ю элементами.
+        for (int i = 0; i < array.length; i++){  // Заполняем массив случайными числами и выводим в консоль.
+            array[i] = nums.nextInt(13);  // Задаём макс. радиус для генер.чисел. От 0 до 12.
+        }
+        return array;
+    }
+
+    /** сортировка методо пузырька
+     * @param array переданный массив чисел
+     * @return отсортированный массив
+     */
+    public static int[] bubbleMethod(int [] array){
         boolean sorted = false; // Создаём булиновскую переменную - будет показателем отсортирован массив или нет.
         while (!sorted) {       // Т.к. мы не знаем сколько циклов нам нужно для сортировки исп. while с условием.
             sorted = true;
@@ -36,12 +69,14 @@ public class MySortings {
                 }
             }
         }
-        System.out.println('\n' + "Выполнили сортировку массива с числами методом пузырька:");
-        System.out.println(Arrays.toString(array)); /* Выполнили сортировку по возрастанию и вывели значения в консоль
-                                                     в виде строки.*/
+        return array;
     }
 
-    public static void selectionMethod(int [] array){
+    /** сортировка методом выбора
+     * @param array переданный массив чисел
+     * @return отсортированный массив
+     */
+    public static int[] selectionMethod(int [] array){
         for (int i = 0; i < array.length; i++) { // Цикл для сравнения минимального элемента с первым элементом
             // неотсортированного массива.
             int min = i;
@@ -56,16 +91,18 @@ public class MySortings {
                 array[min] = cache;
             }
         }
-        System.out.println("Выполнили сортировку массива с числами методом выборки:");
-        System.out.println(Arrays.toString(array)); // Выводим уже отсортированный массив на консоль.
+        return array;
     }
 
-    public static void shakerMethod(int[] array){
+    /** сеортировка методом шейкера
+     * @param array переданный массив чисел
+     * @return отсортированный массив
+     */
+    public static int[] shakerMethod(int[] array){
         int leftSide = 0, rightSide = array.length - 1; // Сортировка массива Шейкером
-        System.out.println("Выполнили сортировку массива с числами методом шейкера:");
         int temp;
-        do {
 
+        do {
             for (int i = leftSide; i < rightSide; i++){ // Сортировка идёт вправо, ищем макс. значение
 
                 if (array[i] > array[i + 1]) {
@@ -85,9 +122,6 @@ public class MySortings {
             leftSide++; // Уменьшаем количество проходов, т.к. мы шли с конца
 
         } while (leftSide < rightSide); // Условие при котором будут происходить прохождения
-        for (int i : array){ // Здесь перебираем каждый индекс массива и выводим его значение
-            System.out.print(i + "  ");
-        }
-
+        return array;
     }
 }

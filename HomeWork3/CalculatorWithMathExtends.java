@@ -1,4 +1,4 @@
-package HomeWork5;
+package HomeWork3;
 
 public class CalculatorWithMathExtends extends CalculatorWithOperator{
     @Override

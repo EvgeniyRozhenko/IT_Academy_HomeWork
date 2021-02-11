@@ -164,24 +164,14 @@ public class Loops {
             }
         }
         Integer x = Integer.valueOf(args[0]);
-//        int y = 0;
-//        for (String arg : args) {
-//
-//            Double x = Double.parseDouble(arg);
-//            if (x % 1 != 0){
-//                System.out.println("Введено не целое число!");
-//                return;
-//            }
-//            y = x.intValue();
-//        }
 
-//        multiplicateInTable(x); // выводим таблицу умножения до заданного аргумента
-//        System.out.println("");
-//        multiplicateTheNumbs(x); // выводим перемножение чисел заданного аргумента между собой
-//        System.out.println("");
-//        multiplicateFromOneToArgum(x); // выводим результат перемножения от 1 до вводимой через аргумент цифры
-//        System.out.println("");
-//        mathPowerOfNumber(); // тут происходит баг сканера - когда мы задаём через консоль дробное число, нужно задавать
+        multiplicateInTable(x); // выводим таблицу умножения до заданного аргумента
+        System.out.println("");
+        multiplicateTheNumbs(x); // выводим перемножение чисел заданного аргумента между собой
+        System.out.println("");
+        multiplicateFromOneToArgum(x); // выводим результат перемножения от 1 до вводимой через аргумент цифры
+        System.out.println("");
+        mathPowerOfNumber(); // тут происходит баг сканера - когда мы задаём через консоль дробное число, нужно задавать
                              // через запятую, а не точку, иначе вылетит ошибка InputMismatchException.
         checkMultiplicationOverflow(-19);
     }

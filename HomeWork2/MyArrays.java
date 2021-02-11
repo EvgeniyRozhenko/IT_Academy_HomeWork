@@ -54,7 +54,7 @@ public class MyArrays {
      * @param from начало диапазона для удаления элементов
      * @param to конец диапазона для удаления элементов
      */
-    public static void compressArray(int [] array, int from, int to){
+    public static int[] compressArray(int [] array, int from, int to){
         int a = from;
         int b = to;
         int length = array.length;
@@ -73,10 +73,7 @@ public class MyArrays {
         for (int x = length; x < array.length; x++){
             array[x] = 0;
         }
-        for (int x = 0; x < array.length; x++){
-            System.out.print(array[x] + " ");
-        }
-//        System.out.println('\n');
+        return Arrays.copyOf(array, length);
     }
 
     /** метод находящий два найменьших элемента массива
@@ -300,7 +297,7 @@ public class MyArrays {
         findMaxElemOfEvenElemtsOfArray(container2);
         findElemtsWithLessThanArithmeticMean(container2);
         findTwoTheSmallestElemtsOfArray(container2);
-        compressArray(container2, 19, 45);
+        System.out.println(Arrays.toString(compressArray(container2, 19, 45)));
         sumOfArrayDigits(container2);
 
         // Старая работа ___________________________________________________________________________________________

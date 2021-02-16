@@ -30,6 +30,11 @@ public class DataContainerMain {
         arr3.sort(new IComparator<>());
         System.out.println(arr3.toStringWithNull());
 
+        DataContainer<Integer> arr4 = new DataContainer<>(new Integer[10]);
+        arr4.add(new Integer[]{1,46,83,769,0,-23,5,81,-1,3});
+        System.out.println(arr4.toString());
+        DataContainer.sort(arr4);
+        System.out.println(arr4.toString());
 
 //        arr.add(1);
 //        System.out.println(arr.toString());

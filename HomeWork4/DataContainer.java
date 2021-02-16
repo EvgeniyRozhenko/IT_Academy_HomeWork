@@ -306,18 +306,18 @@ public class DataContainer<T>{
         }while (swap);
     }
 
-//    public static void sort(DataContainer<? extends Comparable> container){
-//        boolean swap;
-//        do {
-//            swap = false;
-//            for (int i = 0; i < container.data.length-1; i++){
-//                if (container.data[i].compareTo(container.data[i+1]) > 0){
-//                    DataContainer.swap(container.data, i, i + 1);
-//                    swap = true;
-//                }
-//            }
-//        }while (swap);
-//    }
+    public static void sort(DataContainer<? extends Comparable> container){
+        boolean swap;
+        do {
+            swap = false;
+            for (int i = 0; i < container.data.length-1; i++){
+                if (container.data[i].compareTo(container.data[i+1]) > 0){
+                    DataContainer.swap(container.data, i, i + 1);
+                    swap = true;
+                }
+            }
+        }while (swap);
+    }
 
     /**
      * метод обмена значениями внутри массива

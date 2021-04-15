@@ -37,7 +37,7 @@ public class CalculatorWithMathCopy implements ICalculator {
 
     public double power (double value, int powValue){
         if (value < 0){
-            Math.abs(value);
+            value = Math.abs(value);
         }
         return Math.pow(value, powValue);
     }
@@ -51,7 +51,7 @@ public class CalculatorWithMathCopy implements ICalculator {
             System.out.println("Ошибка! Степень не может быть нулевой.");
         }
         if (value < 0){
-            Math.abs(value);
+            value = Math.abs(value);
         }
         return Math.pow(value, 1/i);
     }

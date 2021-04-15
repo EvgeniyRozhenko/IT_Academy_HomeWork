@@ -33,11 +33,11 @@ public class EasySearch implements ISearchEngine{
     public long search(String text, String word){
         long count = 0;
         if (word.equalsIgnoreCase("и") == true){
-            word = new String(" и ");
+            word = " и ";
         }else if(word.equalsIgnoreCase("а") == true){
-            word = new String(" а ");
+            word = " а ";
         }else if(word.equalsIgnoreCase("о") == true){
-            word = new String(" о ");
+            word = " о ";
         }
         int index = text.toLowerCase().indexOf(word.toLowerCase());
         if (index < 0){
